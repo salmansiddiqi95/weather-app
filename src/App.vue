@@ -25,11 +25,11 @@
           <div class="weather">{{ weather.weather[0].main }}</div>
         </div>
       </div>
-      <div class="CopyrightAndSocialIconDiv">
+      <div class="CopyrightAndSocialIconDiv">                 
         <div class="CopyrightDiv">
-          ©{{ new Date().getFullYear() }} All rights reserved.
+          ©{{ new Date().getFullYear() }} All rights reserved.  
         </div>
-        <div class="SocialIconsDiv">
+        <div class="SocialIconsDiv">    
           <div class="InstagramDiv">
               <a class="ancortag" href="#"><i class="fa fa-instagram"></i></a>
           </div>
@@ -54,13 +54,13 @@ export default {
   data() {
     return {
       api_key: "e43f94e3e8eb6d6fa0de015d529d855e",
-      url_base: "https://api.openweathermap.org/data/2.5/",
+      url_base: "https://api.openweathermap.org/data/2.5/",      /* API for weather */
       query: "",
       weather: {},
     };
   },
   mounted() {
-    let colorCode = [
+    let colorCode = [                       /* Logic for Change of color */
       "112, 101, 99, 0.7",
       "149, 35, 14, 0.7",
       "24, 48, 24, 0.7",
@@ -74,7 +74,7 @@ export default {
     }
   },
   methods: {
-    fetchWeather(e) {
+    fetchWeather(e) {                                                   /* weather update */
       if (e.key == "Enter") {
         fetch(
           `${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`
@@ -123,8 +123,11 @@ export default {
 };
 </script>
 
+/* scss/sass used as css pre-processor */
+<style lang="scss">     
+$Whitecolor: #fff;
+$Blackcolor: #000;
 
-<style lang="scss">
 * {
   margin: 0;
   padding: 0;
@@ -190,7 +193,7 @@ body {
 .weather-box .temp {
   display: inline-block;
   padding: 10px 25px;
-  color: #fff;
+  color: $Whitecolor;
   font-size: 102px;
   font-weight: 900;
   text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
@@ -200,21 +203,21 @@ body {
   box-shadow: 3px 6px rgba(0, 0, 0, 0.25);
 }
 .weather-box .weather {
-  color: #fff;
+  color: $Whitecolor;
   font-size: 48px;
   font-weight: 700;
   font-style: italic;
   text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
 }
 .location-box .location {
-  color: #fff;
+  color: $Whitecolor;
   font-size: 32px;
   font-weight: 500;
   text-align: center;
   text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
 }
 .location-box .date {
-  color: #fff;
+  color: $Whitecolor;
   font-size: 20px;
   font-weight: 300;
   font-style: italic;
@@ -222,7 +225,7 @@ body {
 }
 .CopyrightDiv {
   float: left;
-  color: white;
+  color: $Whitecolor;
   margin-top: 6%;
   text-shadow: 0 1px rgba(255, 255, 255, 0.1);
   width: 30%;
@@ -234,7 +237,7 @@ body {
 .InstagramDiv {
   position: absolute;
   line-height: 50px;
-  color: white;
+  color: $Whitecolor;
   margin-left: 32%;
   margin-top: 2%;
   width: 60%;
@@ -243,7 +246,7 @@ body {
 .TwitterDiv {
   position: absolute;
   line-height: 50px;
-  color: white;
+  color: $Whitecolor;
   margin-left: 42%;
   margin-top: 2%;
   width: 50%;
@@ -252,7 +255,7 @@ body {
 .LinkedinDiv {
   position: absolute;
   line-height: 50px;
-  color: white;
+  color: $Whitecolor;
   margin-left: 52%;
   margin-top: 2%;
   width: 40%;
@@ -261,21 +264,21 @@ body {
 .CodepenDiv {
   position: absolute;
   line-height: 50px;
-  color: white;
+  color: $Whitecolor;
   margin-left: 62%;
   margin-top: 2%;
   width: 30%;
   animation: exampleall 1s linear;
 }
 .ancortag {
-  color: white;
+  color: $Whitecolor;
 }
 .ancortag:hover {
   width: 60px;
   height: 60px;
   border-radius: 100%;
   display: block;
-  color: black;
+  color: $Blackcolor;
 }
 /* Move it (define the animation) */
 @keyframes exampleall {
